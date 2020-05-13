@@ -1,14 +1,3 @@
-//ASÍ DEBE SER LOS BOTONES DE LOS OPERADORES Y PROPOSICIONES
-
-
-//ASÍ CALCULAN EL RESULTADO
-//<input type="button" value="Calcular" id="calcular" onclick="(new Calcular()).calcular()">
-
-//ASÍ CREAN LA TABLA
-//<input type="button" style="width:40%" value="Tabla" id="tabla" onclick="crearTabla()"/>
-
-
-
 var variables = ["p", "1", "q", "1", "r", "1", "s", "1"];
 var verdades = [false, false, false, false];
 var proposiciones = ["p", "q", "r", "s"];
@@ -63,14 +52,12 @@ function switchValue(value) {
     }
 }
 
-//retornar variable
 function retornar(num, statement) {
-    var anterior = document.fo.valores.value; //obtiene lo que hay en el campo de texto de la calculadora
-    document.getElementById("valores").value = anterior + num; //agrega el elemento presionado
+    var anterior = document.fo.valores.value; 
+    document.getElementById("valores").value = anterior + num; 
     finalStatement += statement;
 }
 
-//eliminar ultimo valor DEL
 function eliminar() {
     var anterior = document.fo.valores.value;
     var nuevovalor = anterior.substring(0, anterior.length - 1);
@@ -78,7 +65,6 @@ function eliminar() {
     document.getElementById("valores").value = nuevovalor;
 }
 
-//eliminartodo
 function limpiarTextField() {
     document.fo.valores.value = "";
     document.fo.resultado.value = "";
@@ -89,7 +75,6 @@ function limpiarTextField() {
     finalStatement = "";
 }
 
-//cerrarVentana
 function cerrarTabla(obj) {
     obj.close();
 }
@@ -123,15 +108,15 @@ function crearTabla() {
         ventana.document.write('<tr>');
         for (var i = 0; i < verdades.length; i++) {
             if (verdades[i]) {
-                ventana.document.write('<th><label><font color="white">' + proposiciones[i].toUpperCase() + '</font></label></th>');
+                ventana.document.write('<th><label><font color="#00ff2b">' + proposiciones[i].toUpperCase() + '</font></label></th>');
             }
         }
         if (tableStatement.length === 1) {
-            ventana.document.write('<th><label><font color="white">' + proposicionesSimples[0].toUpperCase() + '</font></label></th>');
+            ventana.document.write('<th><label><font color="#00ff2b">' + proposicionesSimples[0].toUpperCase() + '</font></label></th>');
         } else {
             generarEncabezado();
             for (var pos = 0; pos < array.length; pos++) {
-                ventana.document.write('<th><label><font color="white">' + array[pos] + '</font></label></th>');
+                ventana.document.write('<th><label><font color="#00ff2b">' + array[pos] + '</font></label></th>');
             }
         }
         ventana.document.write('</tr>');
@@ -143,18 +128,18 @@ function crearTabla() {
                 var value = parseInt((idx / parseInt(Math.pow(2, j)))) % 2;
                 if (value === 1) valor = "1";
                 else valor = "0";
-                ventana.document.write('<td><label><font color="white">' + valor.toUpperCase() + '</font></label></td>');
+                ventana.document.write('<td><label><font color="#00ff2b">' + valor.toUpperCase() + '</font></label></td>');
                 cambiarValor(proposicionesSimples[k], valor);
                 k++;
             }
             var resultado = (new Calcular()).calcularTabla();
             if (answers.length > 0) {
                 for (var index = 0; index < answers.length; index++) {
-                    ventana.document.write('<td><label><font color="white">' + answers[index].toUpperCase() + '</font></label></td>');
+                    ventana.document.write('<td><label><font color="#00ff2b">' + answers[index].toUpperCase() + '</font></label></td>');
                 }
                 tipo_tabla.push(answers[answers.length - 1]);
             } else {
-                ventana.document.write('<td><label><font color="white">' + resultado.toUpperCase() + '</font></label></td>');
+                ventana.document.write('<td><label><font color="#00ff2b">' + resultado.toUpperCase() + '</font></label></td>');
                 tipo_tabla.push(resultado);
             }
             ventana.document.write('</tr>');
@@ -163,7 +148,7 @@ function crearTabla() {
         ventana.document.write('</table>');
         var tipo = tipoTabla();
         ventana.document.write('<td colspan="5"><hr size="4px" color="black"></td>');
-        ventana.document.write('<div ALIGN="center"><label><font color="white">Tipo de tabla: <strong>' + tipo + '</font></strong></label></div>');
+        ventana.document.write('<div ALIGN="center"><label><font color="#00ff2b">Tipo de tabla: <strong>' + tipo + '</font></strong></label></div>');
         ventana.document.write('<div ALIGN="center">');
         ventana.document.write('<br><input type="button" value="Cerrar" onclick="opener.cerrarTabla(window)" />');
         ventana.document.write('</div>');
@@ -256,8 +241,6 @@ function generarEncabezado() {
     }
 }
 
-//Logica
-//Clase ArbolExpresion
 function ArbolExpresion() {
 
     this.Raiz;
@@ -385,7 +368,6 @@ function ArbolExpresion() {
     };
 }
 
-//Clase Calcular
 function Calcular() {
 
     this.calcular = function() {
@@ -484,7 +466,6 @@ function Calcular() {
     };
 }
 
-//Clase Expresion
 function Expresion(expr) {
 
     this.Exp = expr;
@@ -676,7 +657,6 @@ function Expresion(expr) {
     };
 }
 
-//Clase nodo
 function Nodo(dat) {
     this.HI = null;
     this.data = dat;
@@ -704,7 +684,6 @@ function Nodo(dat) {
 
 }
 
-//clase Pila
 function Pila() {
     this.v = new Array();
     this.tope = -1;
@@ -747,7 +726,6 @@ function Pila() {
     };
 }
 
-//clase comprobador
 function Comprobador() {
     this.Scan = function(Exp) {
         var x = this.limpiarEspacios(Exp);

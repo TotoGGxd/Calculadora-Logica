@@ -1,5 +1,8 @@
-SELECT {
-    /* Estilo para los valores de verdad */
+label{
+    color: #00ff2b;
+}
+title{
+    color: #00ff2b;
 }
 body{
     background-color: black;
