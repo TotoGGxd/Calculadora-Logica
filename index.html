@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculadora Lógica</title>
+	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">-->	
+	<link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="container-fluid text-center justify-content-center">
+		<div class="row pt-4 pb-5">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<form name="fo">
+					<h1 class="encabezado py-3">CALCULADORA LÓGICA</h1>
+
+					<h5 class="pt-3 pb-2"><strong>Expresión actual:</strong></h5>
+					<input type="text" name="valores" id="valores" readonly="readonly" class="mb-3 text-input">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="cuerpo-calculadora py-3">
+								<div>
+									<td><button type="button" value="p" class="btn btn-dark" onclick="retornar(value,'p')">p</button></td>
+									<td><button type="button" value="q" class="btn btn-dark" onclick="retornar(value,'q')">q</button></td>
+									<td><button type="button" value="r" class="btn btn-dark" onclick="retornar(value,'r')">r</button></td>
+									<td><button type="button" value="s" class="btn btn-dark" onclick="retornar(value,'s')">s</button></td>
+								</div>
+
+								<div>
+									<td><button type="button" value="ʌ" class="btn btn-dark" onclick="retornar(value,'&amp;')">ʌ</button></td>
+									<td><button type="button" value="∨" class="btn btn-dark" onclick="retornar(value,'|')">∨</button></td>
+									<td><button type="button" value="→" class="btn btn-dark" onclick="retornar(value,'>')">→</button></td>
+									<td><button type="button" value="¬" class="btn btn-dark" onclick="retornar(value,'!')">¬</button></td>
+								</div>
+
+								<div>
+									<td><button type="button" value="⊻" class="btn btn-dark" onclick="retornar(value,'⊻')">⊻</button></td>
+									<td><button type="button" value="↔" class="btn btn-dark" onclick="retornar(value,'<')">↔</button></td>
+									<td><button type="button" value="(" class="btn btn-dark" onclick="retornar(value,'(')">(</button></td>
+									<td><button type="button" value=")" class="btn btn-dark" onclick="retornar(value,')')">)</button></td>
+								</div>
+
+								<td><button type="button" class="btn btn-dark" onclick="eliminar()">DEL</button></td>
+								<td><button type="button" id="btn-borrar" class="btn btn-dark" onclick="limpiarTextField()">Borrar</button></td>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="valores-verdad row">
+								<div class="col-md-6">
+									<legend><strong>Valores</strong></legend>
+
+									<div class="d-inline-block d-md-block">
+										<label for="valorVerdadP">P</label>
+										<SELECT NAME="value" id="valueOfP" SIZE="1"> 
+											<OPTION VALUE="1">1</OPTION>
+											<OPTION VALUE="2">0</OPTION>
+										</SELECT>
+									</div>
+
+									<div class="d-inline-block d-md-block">
+										<label for="valorVerdadQ">Q</label>
+										<SELECT NAME="value" id="valueOfQ" SIZE="1">
+											<OPTION VALUE="1">1</OPTION>
+											<OPTION VALUE="2">0</OPTION>
+										</SELECT>
+									</div>
+
+									<div class="d-inline-block d-md-block">
+										<label for="valorVerdadR">R</label>
+										<SELECT NAME="value" id="valueOfR" SIZE="1"> 
+											<OPTION VALUE="1">1</OPTION>
+											<OPTION VALUE="2">0</OPTION>
+										</SELECT>
+									</div>
+
+									<div class="d-inline-block d-md-block">
+										<label for="valorVerdadS">S</label>
+										<SELECT NAME="value" id="valueOfS" SIZE="1">
+											<OPTION VALUE="1">1</OPTION>
+											<OPTION VALUE="2">0</OPTION>
+										</SELECT>
+									</div>
+								</div>
+								<div class="col-md-6"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="resultado">
+						<h5 class="pt-3 pb-2"><strong>Resultado:</strong></h5>
+						<input type="text" name="resultado" id="resultado" class="text-input">
+					</div>
+
+					<div class="botones-inferiores pt-4">
+						<button type="button" class="btn btn-dark" id="calcular" onclick="(new Calcular()).calcular()">Calcular Resultado</button>
+						<button type="button" class="btn btn-dark" id="Tabla" onclick="crearTabla()">Generar Tabla</button>
+					</div>
+				</form>
+				<h4 class="pt-3">Rubén Borbolla, Alejadro Borquez, Raúl Capbell, Carlos Encinas, Jesús Gastelúm, Alberto Hoyos</h4>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="calculadora.js"></script>
+</body>
+</html>
